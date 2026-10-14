@@ -7,6 +7,7 @@ A Model Context Protocol (MCP) server for the Paprika Recipe Manager, allowing A
 - **Search Recipes**: Search across recipe titles, ingredients, categories, directions, and notes with context
 - **Read Recipes**: Get full recipe data including all metadata, ingredients, and directions
 - **Update Recipes**: Safely update recipe fields using find/replace (requires user confirmation)
+- **Add Recipes**: Create new recipes, with categories assigned by name
 
 ## Prerequisites
 
@@ -246,6 +247,30 @@ Update a recipe field using find/replace.
   "field": "ingredients",
   "find": "1 cup sugar",
   "replace": "3/4 cup sugar"
+}
+```
+
+#### add_recipe
+
+Create a new recipe. Only `name` is required.
+
+**⚠️ DANGEROUS**: This tool modifies your recipe library. User confirmation is recommended before execution.
+
+**Parameters:**
+- `name` (required): Recipe title
+- `ingredients`, `directions`, `description`, `notes`, `servings`, `prep_time`, `cook_time`, `total_time`, `difficulty`, `source`, `source_url`, `image_url`, `nutritional_info` (optional): Text fields
+- `categories` (optional): List of existing category names (case-insensitive). If any name is unknown, nothing is created.
+- `rating` (optional): 0–5
+- `allow_duplicate` (optional): Create the recipe even if one with the same name already exists (default: false)
+
+**Example:**
+```json
+{
+  "name": "Lemon Drizzle Cake",
+  "ingredients": "225g butter\n225g caster sugar\n4 eggs\n225g self-raising flour\n2 lemons",
+  "directions": "Heat oven to 180C.\nBeat butter and sugar, then add eggs and flour.\nBake 45 minutes and drizzle with lemon syrup.",
+  "servings": "8",
+  "categories": ["Desserts"]
 }
 ```
 

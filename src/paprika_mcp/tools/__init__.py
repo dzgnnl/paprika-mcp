@@ -2,6 +2,8 @@
 
 from .add_category import TOOL_DEFINITION as ADD_CATEGORY_DEF
 from .add_category import add_category_tool
+from .add_recipe import TOOL_DEFINITION as ADD_RECIPE_DEF
+from .add_recipe import add_recipe_tool
 from .delete_recipe import TOOL_DEFINITION as DELETE_RECIPE_DEF
 from .delete_recipe import delete_recipe_tool
 from .format_fraction import TOOL_DEFINITION as FORMAT_FRACTION_DEF
@@ -26,6 +28,10 @@ TOOLS = {
     "remove_category": {
         "definition": REMOVE_CATEGORY_DEF,
         "handler": remove_category_tool,
+    },
+    "add_recipe": {
+        "definition": ADD_RECIPE_DEF,
+        "handler": add_recipe_tool,
     },
     "delete_recipe": {
         "definition": DELETE_RECIPE_DEF,
@@ -57,6 +63,7 @@ __all__ = [
     "TOOLS",
     "add_category_tool",
     "remove_category_tool",
+    "add_recipe_tool",
     "delete_recipe_tool",
     "search_recipes_tool",
     "read_recipe_tool",
