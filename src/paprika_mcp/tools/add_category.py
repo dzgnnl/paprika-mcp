@@ -4,7 +4,12 @@ from typing import Any
 
 from mcp.types import TextContent
 
-from ..utils import clear_categories_cache, get_categories, get_remote, translate_category_uids
+from ..utils import (
+    clear_categories_cache,
+    get_categories,
+    get_remote,
+    translate_category_uids,
+)
 
 
 async def add_category_tool(args: dict[str, Any]) -> list[TextContent]:
