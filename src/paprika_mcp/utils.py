@@ -131,6 +131,12 @@ def get_remote() -> Remote:
         raise
 
 
+def clear_categories_cache() -> None:
+    """Clear the categories cache so it will be re-fetched on next access."""
+    global _categories_cache
+    _categories_cache = None
+
+
 def get_categories(bearer_token: str) -> dict[str, Any]:
     """Get all categories from Paprika API with caching.
 
